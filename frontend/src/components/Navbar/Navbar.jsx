@@ -16,7 +16,7 @@ const Navbar = () => {
       <div>
       <div className="navbar_right">
          <img src={assets.search_icon} alt='Search Icon' />
-         <div className="navbar_search-icon">
+         <div className="navbar_search_icon">
             <img src={assets.basket_icon} alt=''/>
             <div className="dot"></div>
          </div>

@@ -42,3 +42,15 @@ li:hover{
     padding-bottom: 2px;
     border-bottom: 1px solid orange;
 }
+.navbar_search_icon{
+    position: relative;
+}
+.navbar_search_icon .dot{
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    border-radius: 10px;
+    top: -8px;
+    right: -8px;
+}
