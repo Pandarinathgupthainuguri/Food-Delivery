@@ -8,10 +8,10 @@ const Navbar = () => {
     <div className='navbar'>
       <img src={assets.logo} alt='Tomato' className='logo'/>
       <ul className="navbar_menu">
-        <li onClick={()=>{setMenu("home")}} className={menu === "home"?"active":""}>home</li>
-        <li  onClick={()=>{setMenu("menu")}} className={menu === "menu"?"active":""}>menu</li>
-        <li  onClick={()=>{setMenu("mobile_app")}} className={menu === "mobile_app"?"active":""}>mobile_app</li>
-        <li  onClick={()=>{setMenu("contact_us")}} className={menu === "contact_us"?"active":""}>contact_us</li>
+        <li onClick={()=>{setMenu("Home")}} className={menu === "Home"?"active":""}>home</li>
+        <li  onClick={()=>{setMenu("Menu")}} className={menu === "Menu"?"active":""}>menu</li>
+        <li  onClick={()=>{setMenu("Mobile_app")}} className={menu === "Mobile_app"?"active":""}>mobile_app</li>
+        <li  onClick={()=>{setMenu("Contact_us")}} className={menu === "Contact_us"?"active":""}>contact_us</li>
       </ul>
       <div>
       <div className="navbar_right">
