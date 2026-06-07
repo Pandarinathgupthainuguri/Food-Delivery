@@ -1,9 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../../assets/assets/frontend_assets/assets'
 import { StoreContext } from '../../context/StoreContext.jsx'
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { addToCart } = useContext(StoreContext)
+  const { addToCart, removeFromCart } = useContext(StoreContext)
+  const [quantity, setQuantity] = useState(0)
+
+  const handleAdd = () => {
+    addToCart({ _id: id, name, price, image, description })
+    setQuantity(quantity + 1)
+  }
+
+  const handleRemove = () => {
+    if (quantity > 0) {
+      removeFromCart(id)
+      setQuantity(quantity - 1)
+    }
+  }
 
   return (
     <div className='food-item'>
@@ -19,13 +32,24 @@ const FoodItem = ({ id, name, price, description, image }) => {
         <p className="food_item_desc">{description}</p>
         <div className='food_item_actions'>
           <p className='food_item_price'>${price}</p>
-          <button
-            aria-label={`Add ${name} to cart`}
-            className='add-to-cart-btn'
-            onClick={() => addToCart({ _id: id, name, price, image, description })}
-          >
-            <img src={assets.add_icon_green} alt="add" /> Add
-          </button>
+        <div className='quantity-controls'>
+            <button
+              aria-label={`Remove ${name} from cart`}
+              className='qty-btn minus-btn'
+              onClick={handleRemove}
+              disabled={quantity === 0}
+            >
+              <span>−</span>
+            </button>
+            <span className='qty-display'>{quantity}</span>
+            <button
+              aria-label={`Add ${name} to cart`}
+              className='qty-btn plus-btn'
+              onClick={handleAdd}
+            >
+              <span>+</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

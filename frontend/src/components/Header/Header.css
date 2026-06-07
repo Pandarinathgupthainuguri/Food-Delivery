@@ -1,41 +1,192 @@
-.header{
-    height : 34vw;
-    margin: 30px auto;
-    background: url('../../assets/assets/frontend_assets/header_img.png') no-repeat;
-    background-size: contain;
-    position: relative;
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: clamp(450px, 50vw, 560px);
+  margin: 0 0 40px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
-.header_contents{
-    position: absolute;
-    left: 7%;
-    top: 50%;
-    transform: translateY(-50%);
 
-    display: flex;
+.header_overlay,
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(25, 21, 31, 0.18) 0%, rgba(25, 21, 31, 0.48) 100%);
+  z-index: 1;
+}
+
+.header .header_overlay {
+  background: radial-gradient(circle at top left, rgba(255, 87, 34, 0.16), transparent 38%),
+              radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.2), transparent 32%);
+}
+
+.header_contents {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  max-width: 620px;
+  width: 100%;
+  padding: 64px 60px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.header_contents h1 {
+  color: #fff;
+  font-size: clamp(2.8rem, 4vw, 4.3rem);
+  line-height: 0.98;
+  letter-spacing: -1px;
+}
+
+.header_contents p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 500px;
+}
+
+.header_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.header_actions button,
+.secondary_btn {
+  border-radius: 999px;
+  font-weight: 700;
+  border: none;
+  text-align: center;
+  transition: transform 280ms ease, box-shadow 280ms ease, background 280ms ease;
+}
+
+.header_actions button {
+  padding: 14px 36px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent) 0%, #ff6a2d 100%);
+}
+
+.header_actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(255, 87, 34, 0.28);
+}
+
+.secondary_btn {
+  display: inline-flex;
+  padding: 14px 32px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.secondary_btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.header_metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 560px;
+}
+
+.header_metrics div {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 16px 18px;
+}
+
+.header_metrics strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.header_metrics span {
+  display: block;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.93rem;
+}
+
+@media (max-width: 980px) {
+  .header_contents {
+    padding: 44px 32px;
+  }
+
+  .header_metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1080px) {
+  .header {
+    height: clamp(520px, 46vw, 620px);
+  }
+
+  .header_contents {
+    max-width: 680px;
+    padding: 72px 72px 64px;
+  }
+
+  .header_contents h1 {
+    font-size: clamp(3rem, 3.5vw, 4.6rem);
+  }
+
+  .header_metrics {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .header {
+    height: auto;
+    border-radius: 22px;
+    padding-bottom: 26px;
+  }
+
+  .header_contents {
+    padding: 36px 24px 30px;
+  }
+
+  .header_metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .header_contents h1 {
+    font-size: 2.4rem;
+  }
+
+  .header_actions {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+  }
 
-    max-width: 45%;
-    gap: 20px;
-
-    color: white;
-}
-.header_contents h2{
-    font-weight: 500;
-    color: white;
-    font-size: max(4.5 vw,22px);
-
-}
-.header_contents p{
-    font-size: 1vw;
-    color: white;
-}
-.header_contents button{
-    border: none;
-    color: #747474;
-    font-weight: 500;
-    padding: 1vw 2.3vw;
-    background-color: white;
-    font-size: max(1vw,13px);
-    border-radius: 50px;
+  .header_actions button,
+  .secondary_btn {
+    width: 100%;
+  }
 }

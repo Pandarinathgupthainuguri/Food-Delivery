@@ -1,17 +1,111 @@
-.place-order-page{
-	padding: 20px;
+.place-order-page {
+  padding: 32px 0;
 }
-.order-layout{
-	display: flex;
-	gap: 24px;
+
+.place-order-page h2 {
+  font-size: clamp(2rem, 2.5vw, 2.4rem);
+  margin-bottom: 24px;
+  color: var(--heading);
 }
-.order-form{
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
+
+.order-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 26px;
 }
-.order-form label{ display: flex; flex-direction: column; gap:6px; }
-.order-summary{ width: 320px; border-left: 1px solid #eee; padding-left: 16px; }
-.order-total{ font-weight: 600; margin-top: 12px; }
-.order-confirmation{ padding: 20px; }
+
+.order-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  border-radius: 30px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.order-form input,
+.order-form textarea {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 14px 16px;
+  background: var(--surface-soft);
+  resize: vertical;
+}
+
+.order-form textarea {
+  min-height: 140px;
+}
+
+.order-form button {
+  margin-top: 10px;
+  border: none;
+  border-radius: 24px;
+  padding: 14px 20px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 220ms ease, transform 220ms ease;
+}
+
+.order-form button:hover {
+  background: #ff5f29;
+  transform: translateY(-1px);
+}
+
+.order-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  border-radius: 30px;
+  padding: 28px;
+}
+
+.order-summary h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--heading);
+}
+
+.order-summary ul {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.order-summary li {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.order-total {
+  font-weight: 800;
+  margin-top: 18px;
+  color: var(--accent);
+}
+
+.order-confirmation {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 900px) {
+  .order-layout {
+    grid-template-columns: 1fr;
+  }
+}

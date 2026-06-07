@@ -1,0 +1,13 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .home-page {
+    gap: 32px;
+    padding-bottom: 28px;
+  }
+}

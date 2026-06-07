@@ -9,23 +9,25 @@ const FoodDisplay = ({ category = 'All' }) => {
   const list = category === 'All' ? food_list : food_list.filter(item => item.category === category)
 
   return (
-    <div className='food_display' id='food-display'>
+    <section className='food_display' id='food-display'>
       <h2>Top dishes near you</h2>
+      <p className='section-copy'>Browse our curated selection of favorites and sorted categories, then add your preferred meals to the cart with one quick tap.</p>
       <div className="food_display_list">
         {list.map((item) => {
           return (
-            <FoodItem
-              key={item._id}
-              id={item._id}
-              name={item.name}
-              description={item.description}
-              price={item.price}
-              image={item.image}
-            />
+            <div className="food-display-grid-item" key={item._id}>
+              <FoodItem
+                id={item._id}
+                name={item.name}
+                description={item.description}
+                price={item.price}
+                image={item.image}
+              />
+            </div>
           )
         })}
       </div>
-    </div>
+    </section>
   )
 }
 
