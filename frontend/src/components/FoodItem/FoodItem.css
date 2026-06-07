@@ -31,8 +31,27 @@
     color: #676767;
     font-size: 12px;
 }
-.food_item_prise{
+.food_item_price{
     color: tomato;
     font-size: 22px;
     font-weight: 500;
+}
+
+.food_item_actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.add-to-cart-btn{
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e6efe6;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
 }

@@ -1,0 +1,17 @@
+.place-order-page{
+	padding: 20px;
+}
+.order-layout{
+	display: flex;
+	gap: 24px;
+}
+.order-form{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.order-form label{ display: flex; flex-direction: column; gap:6px; }
+.order-summary{ width: 320px; border-left: 1px solid #eee; padding-left: 16px; }
+.order-total{ font-weight: 600; margin-top: 12px; }
+.order-confirmation{ padding: 20px; }

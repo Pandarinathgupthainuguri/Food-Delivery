@@ -5,14 +5,14 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import './App.css'
-import { StoreContext } from './context/StoreContext.jsx'
+import StoreContextProvider from './context/StoreContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <StoreContext>
+      <StoreContextProvider>
         <App />
-    </StoreContext>
+      </StoreContextProvider>
     </BrowserRouter>
   </StrictMode>,
 )

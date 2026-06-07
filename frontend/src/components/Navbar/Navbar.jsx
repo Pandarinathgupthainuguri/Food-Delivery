@@ -1,28 +1,46 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './Navbar.css'
-import {assets} from '../../assets/assets/frontend_assets/assets'
+import { Link } from 'react-router-dom'
+import { assets } from '../../assets/assets/frontend_assets/assets'
+import { StoreContext } from '../../context/StoreContext.jsx'
 
 const Navbar = () => {
-    const [menu,setMenu] = useState("home");
+    const [menu,setMenu] = useState("Home");
+  const { cart } = useContext(StoreContext)
+
   return (
     <div className='navbar'>
-      <img src={assets.logo} alt='Tomato' className='logo'/>
-      <ul className="navbar_menu">
-        <li onClick={()=>{setMenu("Home")}} className={menu === "Home"?"active":""}>home</li>
-        <li  onClick={()=>{setMenu("Menu")}} className={menu === "Menu"?"active":""}>menu</li>
-        <li  onClick={()=>{setMenu("Mobile_app")}} className={menu === "Mobile_app"?"active":""}>mobile_app</li>
-        <li  onClick={()=>{setMenu("Contact_us")}} className={menu === "Contact_us"?"active":""}>contact_us</li>
+      <Link to="/">
+        <img src={assets.logo} alt='Tomato' className='logo' />
+      </Link>
+      <ul className="navbar_menu" role="navigation" aria-label="Main navigation">
+        <li>
+          <Link to="/" className={menu === "Home" ? "active" : ""}>Home</Link>
+        </li>
+        <li>
+          <button onClick={() => setMenu("Menu")} className={menu === "Menu" ? "active" : ""}>Menu</button>
+        </li>
+        <li>
+          <button onClick={() => setMenu("Mobile_app")} className={menu === "Mobile_app" ? "active" : ""}>Mobile App</button>
+        </li>
+        <li>
+          <button onClick={() => setMenu("Contact_us")} className={menu === "Contact_us" ? "active" : ""}>Contact Us</button>
+        </li>
       </ul>
       <div>
-      <div className="navbar_right">
-         <img src={assets.search_icon} alt='Search Icon' />
-         <div className="navbar_search_icon">
-            <img src={assets.basket_icon} alt=''/>
-            <div className="dot"></div>
-         </div>
-         <button>Sign in</button>
-      </div>
-
+        <div className="navbar_right">
+          <img src={assets.search_icon} alt='Search' />
+          <div className="navbar_search_icon">
+            <Link to="/cart" aria-label="View cart">
+              <img src={assets.basket_icon} alt='Cart' />
+              {cart.length > 0 && <div className="dot" aria-hidden>{cart.reduce((s, i) => s + i.qty, 0)}</div>}
+            </Link>
+          </div>
+          <Link to="/cart" className="cart-link">Cart</Link>
+          <Link to="/placeorder">
+            <button>Place Order</button>
+          </Link>
+        </div>
       </div>
     </div>
   )
